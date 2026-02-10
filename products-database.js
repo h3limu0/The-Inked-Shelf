@@ -241,35 +241,55 @@ const products = {
     // NOVEL PRODUCTS
     // ============================================
     novels: [
-        {
-            id: 101,
-            name: "The Great Gatsby",
-            price: 450,
-            image: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&h=500&fit=crop",
-            badge: "Classic"
-        },
-        {
-            id: 102,
-            name: "1984 by George Orwell",
-            price: 420,
-            image: "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400&h=500&fit=crop",
-            badge: "Bestseller"
-        },
-        {
-            id: 103,
-            name: "Pride and Prejudice",
-            price: 480,
-            image: "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=400&h=500&fit=crop",
-            badge: ""
-        },
-        {
-            id: 104,
-            name: "To Kill a Mockingbird",
-            price: 460,
-            image: "https://images.unsplash.com/photo-1589998059171-988d887df646?w=400&h=500&fit=crop",
-            badge: "Popular"
-        },
-        // ADD MORE NOVELS HERE - Just copy the format above!
+        // 1. Dark Verse Series (Runyx)
+        {id: 10001, name: "The Predator (Dark Verse #1)", price: 270, image: "https://m.media-amazon.com/images/I/41wZW+yLPUL._SY300_.jpg", badge: ""},
+        {id: 10002, name: "The Reaper (Dark Verse #2)", price: 450, image: "https://m.media-amazon.com/images/I/41PzLhKSRNL._SY300_.jpg", badge: ""},
+        {id: 10003, name: "The Emperor (Dark Verse #3)", price: 450, image: "https://m.media-amazon.com/images/I/51UdcSqrTAL._SY300_.jpg", badge: ""},
+        {id: 10004, name: "The Finisher (Dark Verse #4)", price: 450, image: "https://m.media-amazon.com/images/I/51xnY6eavxL._SY300_.jpg", badge: ""},
+        {id: 10005, name: "The Annihilator (Dark Verse #5)", price: 450, image: "https://m.media-amazon.com/images/I/51AK0i9edDL._SY300_.jpg", badge: ""},
+        {id: 10006, name: "The Syndicater (Dark Verse #6)", price: 450, image: "https://m.media-amazon.com/images/I/413Cu8-xMTL._SY300_.jpg", badge: ""},
+
+        // 2. Empyrean Series (Rebecca Yarros)
+        {id: 10007, name: "Fourth Wing (Empyrean #1)", price: 450, image: "https://m.media-amazon.com/images/I/914HWd0RxsL._AC_UY218_.jpg", badge: ""},
+        {id: 10008, name: "Iron Flame (Empyrean #2)", price: 450, image: "https://m.media-amazon.com/images/I/912fTvsUKLL._AC_UY218_.jpg", badge: ""},
+        {id: 10009, name: "Onyx Storm (Empyrean #3)", price: 450, image: "https://m.media-amazon.com/images/I/91rcGxdclIL._AC_UY218_.jpg", badge: ""},
+
+        // 3. Made Series (Danielle Lori)
+        {id: 10010, name: "The Sweetest Oblivion (Made #1)", price: 450, image: "https://m.media-amazon.com/images/I/4117gTjPTPL._SY300_.jpg", badge: ""},
+        {id: 10011, name: "The Maddest Obsession (Made #2)", price: 450, image: "https://m.media-amazon.com/images/I/41ny+qa7YgL._SY300_.jpg", badge: ""},
+        {id: 10012, name: "The Darkest Temptation (Made #3)", price: 450, image: "https://m.media-amazon.com/images/I/417r53rY2FL._SY300_.jpg", badge: ""},
+
+        // 5. The Edge of Darkness Trilogy (Leigh Rivers)
+        {id: 10016, name: "Insatiable (The Edge of Darkness Trilogy #1)", price: 450, image: "https://m.media-amazon.com/images/I/51uD0Oy9D0L._SY300_.jpg", badge: ""},
+        {id: 10017, name: "Irresistible (The Edge of Darkness Trilogy #2)", price: 450, image: "https://m.media-amazon.com/images/I/51EgN4DQq1L._SY300_.jpg", badge: ""},
+        {id: 10018, name: "Inevitable (The Edge of Darkness Trilogy #3)", price: 450, image: "https://m.media-amazon.com/images/I/51PficLSDUL._SY300_.jpg", badge: ""},
+
+        // 7. Legacy of Gods (Rina Kent)
+        {id: 10023, name: "God of Malice (Legacy of Gods #1)", price: 450, image: "https://m.media-amazon.com/images/I/51nXgmwselL._SY300_.jpg", badge: ""},
+        {id: 10024, name: "God of Pain (Legacy of Gods #2)", price: 450, image: "https://m.media-amazon.com/images/I/51tpoy6704L._SY300_.jpg", badge: ""},
+        {id: 10025, name: "God of Wrath (Legacy of Gods #3)", price: 450, image: "https://m.media-amazon.com/images/I/51sR8ua2z+L._SY300_.jpg", badge: ""},
+        {id: 10026, name: "God of Ruin (Legacy of Gods #4)", price: 450, image: "https://m.media-amazon.com/images/I/51qC6uh0eWL._SY300_.jpg", badge: ""},
+        {id: 10027, name: "God of Fury (Legacy of Gods #5)", price: 450, image: "https://m.media-amazon.com/images/I/51REpKJmJIL._SY300_.jpg", badge: ""},
+        {id: 10029, name: "God of War (Legacy of Gods #6)", price: 450, image: "https://m.media-amazon.com/images/I/51AtU7O6hPL._SY300_.jpg", badge: ""},
+
+        // 9. Deception Trilogy (Rina Kent)
+        {id: 10031, name: "Vow of Deception (Deception Trilogy #1)", price: 450, image: "https://m.media-amazon.com/images/I/518-Vyu8KuL._SY300_.jpg", badge: ""},
+        {id: 10032, name: "Tempted by Deception (Deception Trilogy #2)", price: 450, image: "https://m.media-amazon.com/images/I/51u+q215j1L._SY300_.jpg", badge: ""},
+        {id: 10033, name: "Consumed by Deception (Deception Trilogy #3)", price: 450, image: "https://m.media-amazon.com/images/I/51YFkxtTveL._SY300_.jpg", badge: ""},
+
+        // 10. The Lords Series (Shantel Tessier)
+        {id: 10034, name: "The Ritual (The Lords Series #1)", price: 450, image: "https://m.media-amazon.com/images/I/51oFdGuoylL._SY300_.jpg", badge: ""},
+        {id: 10035, name: "The Sinner (The Lords Series #2)", price: 450, image: "https://m.media-amazon.com/images/I/51-5m2SPPHL._SY300_.jpg", badge: ""},
+        {id: 10036, name: "The Sacrifice (The Lords Series #3)", price: 450, image: "https://m.media-amazon.com/images/I/51XAplGTaZL._SY300_.jpg", badge: ""},
+
+        // 11. King of Sins Series (Ana Huang)
+        {id: 10037, name: "King of Wrath (King of Sins #1)", price: 450, image: "https://m.media-amazon.com/images/I/515mo+3sVDL._SY300_.jpg", badge: ""},
+        {id: 10038, name: "King of Pride (King of Sins #2)", price: 450, image: "https://m.media-amazon.com/images/I/513bddvABKL._SY300_.jpg", badge: ""},
+        {id: 10039, name: "King of Greed (King of Sins #3)", price: 450, image: "https://m.media-amazon.com/images/I/51AC5Q9dNrL._SY300_.jpg", badge: ""},
+        {id: 10040, name: "King of Sloth (King of Sins #4)", price: 450, image: "https://m.media-amazon.com/images/I/41k-Vx1UYoL._SY300_.jpg", badge: ""},
+        {id: 10041, name: "King of Envy (King of Sins #5)", price: 450, image: "https://m.media-amazon.com/images/I/41nyncvQZJL._SY300_.jpg", badge: ""},
+        {id: 10042, name: "King of Gluttony (King of Sins #6)", price: 450, image: "https://m.media-amazon.com/images/I/41sgChMogNL._SY300_.jpg", badge: ""},
+
     ]
 };
 
