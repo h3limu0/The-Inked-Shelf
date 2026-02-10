@@ -284,9 +284,9 @@ const products = {
         {id: 10006, name: "The Syndicater (Dark Verse #6)", price: 270, image: "https://m.media-amazon.com/images/I/413Cu8-xMTL._SY300_.jpg", badge: ""},
 
         // 2. Empyrean Series (Rebecca Yarros)
-        {id: 10007, name: "Fourth Wing (Empyrean #1)", price: 450, image: "https://m.media-amazon.com/images/I/914HWd0RxsL._AC_UY218_.jpg", badge: ""},
-        {id: 10008, name: "Iron Flame (Empyrean #2)", price: 450, image: "https://m.media-amazon.com/images/I/912fTvsUKLL._AC_UY218_.jpg", badge: ""},
-        {id: 10009, name: "Onyx Storm (Empyrean #3)", price: 450, image: "https://m.media-amazon.com/images/I/91rcGxdclIL._AC_UY218_.jpg", badge: ""},
+        {id: 10007, name: "Fourth Wing (Empyrean #1)", price: 500, image: "https://m.media-amazon.com/images/I/914HWd0RxsL._AC_UY218_.jpg", badge: ""},
+        {id: 10008, name: "Iron Flame (Empyrean #2)", price: 660, image: "https://m.media-amazon.com/images/I/912fTvsUKLL._AC_UY218_.jpg", badge: ""},
+        {id: 10009, name: "Onyx Storm (Empyrean #3)", price: 500, image: "https://m.media-amazon.com/images/I/91rcGxdclIL._AC_UY218_.jpg", badge: ""},
 
         // 3. Made Series (Danielle Lori)
         {id: 10010, name: "The Sweetest Oblivion (Made #1)", price: 450, image: "https://m.media-amazon.com/images/I/4117gTjPTPL._SY300_.jpg", badge: ""},
