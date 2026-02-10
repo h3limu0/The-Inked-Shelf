@@ -316,6 +316,187 @@
             font-weight: 400;
         }
 
+        /* Featured Products Section */
+        .featured-products {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .featured-scroll-wrapper {
+            position: relative;
+        }
+
+        .featured-scroll {
+            display: flex;
+            gap: 1.5rem;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 1rem 0.5rem 1.5rem;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .featured-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scroll-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: none;
+            background: #fff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            color: #1a1a1a;
+            transition: all 0.3s;
+        }
+
+        .scroll-btn:hover {
+            background: linear-gradient(135deg, #2C1810 0%, #6F4E37 100%);
+            color: #fff;
+            box-shadow: 0 6px 20px rgba(44, 24, 16, 0.4);
+        }
+
+        .scroll-btn-left {
+            left: -10px;
+        }
+
+        .scroll-btn-right {
+            right: -10px;
+        }
+
+        .featured-card {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            transition: all 0.3s;
+            border: 2px solid rgba(102, 126, 234, 0.1);
+            min-width: 240px;
+            max-width: 240px;
+            flex-shrink: 0;
+        }
+
+        .featured-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            border-color: rgba(102, 126, 234, 0.3);
+        }
+
+        .featured-image-wrapper {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            background: #f5f5f5;
+            transition: transform 0.4s;
+        }
+
+        .featured-card:hover .featured-image {
+            transform: scale(1.05);
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #ff2e63;
+            color: #fff;
+            padding: 0.4rem 0.8rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .featured-info {
+            padding: 1.2rem;
+        }
+
+        .featured-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #0d0d0d;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .featured-price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #ff2e63;
+            margin-bottom: 0.8rem;
+        }
+
+        .featured-add-btn {
+            width: 100%;
+            padding: 0.7rem;
+            background: linear-gradient(135deg, #ff758c 0%, #ff2e63 100%);
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            font-family: 'DM Sans', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .featured-add-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 46, 99, 0.4);
+        }
+
+        .featured-add-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+            color: #fff;
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            display: none;
+            align-items: center;
+            gap: 0.5rem;
+            z-index: 10000;
+            animation: slideIn 0.3s ease;
+        }
+
+        .toast.show {
+            display: flex;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(400px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
         /* Categories Section */
         .categories {
             max-width: 1200px;
@@ -585,6 +766,19 @@
                 grid-template-columns: 1fr;
             }
 
+            .featured-card {
+                min-width: 200px;
+                max-width: 200px;
+            }
+
+            .featured-image {
+                height: 240px;
+            }
+
+            .scroll-btn {
+                display: none;
+            }
+
             .footer-content {
                 grid-template-columns: 1fr;
             }
@@ -620,26 +814,6 @@
         }
     </style>
 </head>
-<script>
-function updateCartCount() {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-    const countElement = document.getElementById('cartCount');
-    if (countElement) {
-        countElement.textContent = totalItems;
-    }
-}
-document.addEventListener('DOMContentLoaded', function() {
-    updateCartCount();
-    var btn = document.querySelector('.mobile-menu-btn');
-    var nav = document.querySelector('.nav-links');
-    if (btn && nav) {
-        btn.addEventListener('click', function() {
-            nav.classList.toggle('open');
-        });
-    }
-});
-</script>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
@@ -708,6 +882,31 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
     </section>
 
+    <!-- Featured Products Section -->
+    <section class="featured-products">
+        <div class="section-header">
+            <h2>Featured Manga</h2>
+            <p>Hand-picked favorites refreshed every visit</p>
+        </div>
+        <div class="featured-scroll-wrapper">
+            <button class="scroll-btn scroll-btn-left" onclick="document.getElementById('featuredScroll').scrollBy({left:-500,behavior:'smooth'})">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="featured-scroll" id="featuredScroll">
+                <!-- Products loaded randomly by JavaScript -->
+            </div>
+            <button class="scroll-btn scroll-btn-right" onclick="document.getElementById('featuredScroll').scrollBy({left:500,behavior:'smooth'})">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span>Added to cart!</span>
+    </div>
+
     <!-- Categories Section -->
     <section class="categories">
         <div class="section-header">
@@ -774,5 +973,77 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         </div>
     </footer>
+
+    <script src="products-database.js"></script>
+    <script>
+    function addToCart(name, price, image) {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const existingItem = cart.find(item => item.name === name);
+        if (existingItem) {
+            existingItem.quantity += 1;
+        } else {
+            cart.push({ name: name, price: price, image: image, quantity: 1 });
+        }
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartCount();
+        showToast();
+    }
+
+    function updateCartCount() {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        const countElement = document.getElementById('cartCount');
+        if (countElement) {
+            countElement.textContent = totalItems;
+        }
+    }
+
+    function showToast() {
+        const toast = document.getElementById('toast');
+        if (toast) {
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 2000);
+        }
+    }
+
+    function loadFeaturedProducts() {
+        const grid = document.getElementById('featuredScroll');
+        if (!grid || typeof products === 'undefined' || !products.manga) return;
+
+        const manga = products.manga.slice();
+        for (let i = manga.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [manga[i], manga[j]] = [manga[j], manga[i]];
+        }
+
+        grid.innerHTML = manga.map(function(product) {
+            var safeName = product.name.replace(/'/g, "\\'");
+            return '<div class="featured-card">' +
+                '<div class="featured-image-wrapper">' +
+                    '<img src="' + product.image + '" alt="' + product.name + '" class="featured-image" loading="lazy">' +
+                    (product.badge ? '<span class="featured-badge">' + product.badge + '</span>' : '') +
+                '</div>' +
+                '<div class="featured-info">' +
+                    '<div class="featured-title">' + product.name + '</div>' +
+                    '<div class="featured-price">৳' + product.price + '</div>' +
+                    '<button class="featured-add-btn" onclick="addToCart(\'' + safeName + '\', ' + product.price + ', \'' + product.image + '\')">' +
+                        '<i class="fas fa-shopping-cart"></i> Add to Cart' +
+                    '</button>' +
+                '</div>' +
+            '</div>';
+        }).join('');
+    }
+
+    updateCartCount();
+    loadFeaturedProducts();
+
+    var btn = document.querySelector('.mobile-menu-btn');
+    var nav = document.querySelector('.nav-links');
+    if (btn && nav) {
+        btn.addEventListener('click', function() {
+            nav.classList.toggle('open');
+        });
+    }
+    </script>
 </body>
 </html>
