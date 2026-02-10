@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="logo.jpg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - The Inked Shelf</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+                .wishlist-icon-link,
+        .cart-icon-link {
+            position: relative;
+            font-size: 1.25rem;
+            color: #000;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .wishlist-icon-link:hover,
+        .cart-icon-link:hover {
+            color: #C7382B;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #ff2e63;
+            color: #fff;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: #fafafa;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: #fff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .brand {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #000;
+            text-decoration: none;
+        }
+
+        .brand span {
+            color: #000;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #000;
+            text-decoration: none;
+            font-weight: 500;
+            font-family: 'DM Sans', sans-serif;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: #C7382B;
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #C7382B;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #614385, #516395);
+            color: #fff;
+            padding: 4rem 2rem 3rem;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        /* FAQ Section */
+        .faq-container {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .faq-item {
+            background: #fff;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            overflow: hidden;
+            transition: box-shadow 0.3s;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .faq-question {
+            padding: 1.5rem 2rem;
+            background: #fff;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #1a1a1a;
+            transition: background 0.3s;
+        }
+
+        .faq-question:hover {
+            background: #f9f9f9;
+        }
+
+        .faq-question.active {
+            background: #f5f5f5;
+        }
+
+        .faq-icon {
+            font-size: 1.5rem;
+            color: #ff2e63;
+            transition: transform 0.3s;
+        }
+
+        .faq-question.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+            padding: 0 2rem;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .faq-answer.active {
+            max-height: 500px;
+            padding: 1.5rem 2rem;
+        }
+
+        .faq-categories {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .category-btn {
+            padding: 0.7rem 1.5rem;
+            background: #fff;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .category-btn:hover,
+        .category-btn.active {
+            background: #ff2e63;
+            color: #fff;
+            border-color: #ff2e63;
+        }
+
+        /* Contact CTA */
+        .contact-cta {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, #614385, #516395 100%);
+            border-radius: 20px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .contact-cta h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-cta p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .btn-contact {
+            background: #fff;
+            color: #667eea;
+            padding: 1rem 2.5rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: transform 0.3s;
+        }
+
+        .btn-contact:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        /* Footer - matches index.html */
+        .footer {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #fff;
+            margin-top: 6rem;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem 2rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 1.3rem;
+        }
+
+        .footer-section h3.footer-brand {
+            color: #fff;
+            background: none;
+            -webkit-text-fill-color: #fff;
+            background-clip: unset;
+            font-size: 1.25rem;
+        }
+
+        .footer-section p {
+            color: #aaa;
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: #ff6b6b;
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 107, 107, 0.1);
+            border: 2px solid rgba(255, 107, 107, 0.3);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ff6b6b;
+            font-size: 1.3rem;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #fff;
+                flex-direction: column;
+                padding: 1rem 2rem;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+                gap: 0.5rem;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-container {
+                position: relative;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+                padding: 0.5rem;
+                min-width: 44px;
+                min-height: 44px;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .faq-question {
+                font-size: 1rem;
+                padding: 1.2rem 1.5rem;
+            }
+
+            .faq-answer {
+                padding: 0 1.5rem;
+            }
+
+            .faq-answer.active {
+                padding: 1.2rem 1.5rem;
+            }
+
+            .faq-container {
+                padding: 0 1rem;
+            }
+
+            .nav-container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<script>
+function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    const countElement = document.getElementById('cartCount');
+    if (countElement) {
+        countElement.textContent = totalItems;
+    }
+}
+document.addEventListener('DOMContentLoaded', function() {
+    updateCartCount();
+    var btn = document.querySelector('.mobile-menu-btn');
+    var nav = document.querySelector('.nav-links');
+    if (btn && nav) {
+        btn.addEventListener('click', function() {
+            nav.classList.toggle('open');
+        });
+    }
+});
+</script>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="brand">The <span>Inked</span> Shelf</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="manga.html">Manga</a>
+                <a href="novels.html">Novels</a>
+                <a href="customize.html">Customize</a>
+                <a href="faq.html" class="active">FAQ</a>
+                <a href="contact.html">Contact</a>
+                
+                <a href="cart.html" class="cart-icon-link">
+                <i class="fas fa-bag-shopping"></i>
+                <span class="cart-count" id="cartCount">0</span>
+                </a>
+            </div>
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>Frequently Asked Questions</h1>
+        <p>Find answers to common questions about our products and services</p>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="faq-container">
+        <div class="faq-categories">
+            <button class="category-btn active" onclick="filterFAQ('all')">All</button>
+            <button class="category-btn" onclick="filterFAQ('ordering')">Ordering</button>
+            <button class="category-btn" onclick="filterFAQ('shipping')">Shipping</button>
+            <button class="category-btn" onclick="filterFAQ('products')">Products</button>
+            <button class="category-btn" onclick="filterFAQ('returns')">Returns</button>
+        </div>
+
+        <!-- Ordering Questions -->
+        <div class="faq-item" data-category="ordering">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>How do I place an order?</span>
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                Simply browse our manga or novel collection, click on the product you want, and press the "Order via WhatsApp" button. You'll be directed to WhatsApp with a pre-filled message. Confirm your order details and our team will get back to you shortly.
+            </div>
+        </div>
+
+        <div class="faq-item" data-category="ordering">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>What payment methods do you accept?</span>
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                We accept multiple payment methods including bKash, bank to bkash and cash on delivery. Payment details will be shared via WhatsApp after you place your order.
+            </div>
+        </div>
+
+        <div class="faq-item" data-category="ordering">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>Can I order products that are out of stock?</span>
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                Yes! If a product is out of stock, you can still place a order through the <a href="customize.html">Customize</a> page. We'll notify you via WhatsApp about the availability.
+            </div>
+        </div>
+
+        <!-- Shipping Questions -->
+        <div class="faq-item" data-category="shipping">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>How long does delivery take?</span>
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                Delivery typically takes 7-11 business days. We'll provide tracking information once your order is shipped.
+            </div>
+        </div>
+
+        <div class="faq-item" data-category="shipping">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>Do you deliver nationwide?</span>
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                Yes! We deliver to all districts across Bangladesh.
+            </div>
+        </div>
+        <div class="faq-item" data-category="shipping">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>What is the Delivery Charge?</span>
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                Insde Dhaka - 70tk. Outside Dhaka - 130tk
+            </div>
+        </div>
+        <!-- Products Questions -->
+        <div class="faq-item" data-category="products">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>Are your products qualityful?</span>
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                Absolutely! All our manga and novels are printed on premium quality 80GSM paper with official cover and content. We guarantee 100% authenticity and quality in every product we deliver.
+            </div>
+        </div>
+
+        <div class="faq-item" data-category="products">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>What quality of paper do you use?</span>
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                We use premium matte 80GSM paper for all our prints. The paper quality ensures crisp, clear images and comfortable reading experience. All books come with durable covers to protect your collection.
+            </div>
+        </div>
+
+        <div class="faq-item" data-category="products">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>Can I request a specific manga or novel that's not listed?</span>
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                Yes! We offer custom printing services. Contact us via WhatsApp with your request and we'll check availability and provide a quote. We can print most manga and novels upon request.
+            </div>
+        </div>
+
+        <div class="faq-item" data-category="products">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>Are the books in English or Bengali?</span>
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                Most of our collection is in English. We're working on expanding our Bengali translation collection. You can contact us to inquire about specific titles in Bengali.
+            </div>
+        </div>
+
+        <!-- Returns Questions -->
+        <div class="faq-item" data-category="returns">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>What is your return policy?</span>
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                We accept returns within 3 days of delivery if the product is defective or mssing content. The book must be in its original condition with all packaging intact. Contact us immediately if you receive a damaged item.
+            </div>
+        </div>
+
+        <div class="faq-item" data-category="returns">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>How do I return a damaged product?</span>
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                If you receive a damaged product, take photos and send them to us via WhatsApp within 24 hours of delivery. We'll arrange for a replacement or full refund at no extra cost to you.
+            </div>
+        </div>
+
+        <div class="faq-item" data-category="returns">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>Can I exchange a product?</span>
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                Yes, exchanges are possible if you received the wrong product or if there's a defect. Contact us within 7 days of delivery and we'll arrange an exchange. Please note that exchanges due to change of mind are subject to approval.
+            </div>
+        </div>
+
+        <!-- General Questions -->
+        <div class="faq-item" data-category="general">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>How can I track my order?</span>
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                Once your order is shipped, we'll send you tracking information via WhatsApp. You can use this to monitor your delivery status in real-time.
+            </div>
+        </div>
+
+        <div class="faq-item" data-category="general">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>How do I contact customer support?</span>
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                You can reach us via WhatsApp at 01616651333, email us at inkedshelf@gmail.com, or use the contact form on our website. We're available 7 days a week and respond within 24 hours.
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact CTA -->
+    <div class="contact-cta">
+        <h2>Still Have Questions?</h2>
+        <p>Our team is here to help! Get in touch with us and we'll respond as soon as possible.</p>
+        <a href="contact.html" class="btn-contact">Contact Us</a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 class="footer-brand">The Inked Shelf</h3>
+                <p>Your trusted online bookstore for premium manga and novels in Bangladesh. We deliver quality, authenticity, and exceptional service.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/profile.php?id=61559259214361" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://wa.me/8801616651333" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/the_inked_shelf/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="manga.html">Manga</a></li>
+                    <li><a href="novels.html">Novels</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul class="footer-links">
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-phone"></i> 01616651333</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Dhaka, Bangladesh</li>
+
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const allQuestions = document.querySelectorAll('.faq-question');
+            const allAnswers = document.querySelectorAll('.faq-answer');
+
+            // Close all other FAQs
+            allQuestions.forEach(q => {
+                if (q !== element) {
+                    q.classList.remove('active');
+                }
+            });
+            allAnswers.forEach(a => {
+                if (a !== answer) {
+                    a.classList.remove('active');
+                }
+            });
+
+            // Toggle current FAQ
+            element.classList.toggle('active');
+            answer.classList.toggle('active');
+        }
+
+        function filterFAQ(category) {
+            const items = document.querySelectorAll('.faq-item');
+            const buttons = document.querySelectorAll('.category-btn');
+
+            // Update active button
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Show/hide items
+            items.forEach(item => {
+                if (category === 'all' || item.dataset.category === category) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            // Close all open FAQs
+            document.querySelectorAll('.faq-question').forEach(q => q.classList.remove('active'));
+            document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('active'));
+        }
+    </script>
+</body>
+</html>

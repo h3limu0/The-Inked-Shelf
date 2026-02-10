@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="logo.jpg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customize Your Order</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .wishlist-icon-link,
+        .cart-icon-link {
+            position: relative;
+            font-size: 1.25rem;
+            color: #000;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .wishlist-icon-link:hover,
+        .cart-icon-link:hover {
+            color: #C7382B;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #ff2e63;
+            color: #fff;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: linear-gradient(to bottom, #fafafa 0%, #f0f4ff 100%);
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        .navbar {
+            background: #fff;
+            box-shadow: 0 2px 15px rgba(102, 126, 234, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .brand-logo {
+            width: 55px;
+            height: 55px;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+        }
+
+        .brand-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #000;
+            color: #000;
+            letter-spacing: 0.5px;
+        }
+
+        .brand-text .accent {
+            color: #000;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #000;
+            text-decoration: none;
+            font-weight: 500;
+            font-family: 'DM Sans', sans-serif;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: #C7382B;
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #C7382B;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a.active {
+            color: #C7382B;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #1a1a1a;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #6a11cb, #2575fc 100%);
+            color: #fff;
+            padding: 4rem 2rem 3rem;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3);
+        }
+
+        .page-header h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        /* Pricing Banner */
+        .pricing-banner {
+            max-width: 1200px;
+            margin: 3rem auto 2rem;
+            padding: 0 2rem;
+        }
+
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .pricing-card {
+            background: linear-gradient(135deg, #fff 0%, #f8f9ff 100%);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border: 2px solid rgba(102, 126, 234, 0.1);
+            transition: all 0.3s;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.15);
+        }
+
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .pricing-card .price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-card .description {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Customize Form */
+        .customize-container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .customize-form {
+            background: #fff;
+            padding: 3rem;
+            border-radius: 25px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .form-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .form-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .form-section h3 i {
+            color: #667eea;
+        }
+
+        .option-group {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .option-btn {
+            padding: 1.2rem;
+            background: #f8f9ff;
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+            font-weight: 600;
+            color: #666;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .option-btn:hover {
+            border-color: #667eea;
+            transform: translateY(-2px);
+        }
+
+        .option-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            border-color: #667eea;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .option-btn .icon {
+            font-size: 2rem;
+        }
+
+        .option-btn .label {
+            font-size: 1rem;
+        }
+
+        .option-btn .extra-info {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.3s;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .textarea-field {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            resize: vertical;
+            min-height: 100px;
+            transition: border-color 0.3s;
+        }
+
+        .textarea-field:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        /* Price Summary */
+        .price-summary {
+            background: linear-gradient(135deg, #f8f9ff 0%, #fff 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            border: 2px solid rgba(102, 126, 234, 0.1);
+        }
+
+        .price-summary h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .price-breakdown {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .price-item:last-child {
+            border-bottom: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #667eea;
+            padding-top: 1rem;
+            border-top: 2px solid #667eea;
+        }
+
+        /* Submit Button */
+        .submit-btn {
+            width: 100%;
+            padding: 1.3rem;
+            background: linear-gradient(135deg, #25d366, #128c7e);
+            color: #fff;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+        }
+
+        .submit-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .submit-btn i {
+            font-size: 1.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #fff;
+            margin-top: 6rem;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem 2rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 1.3rem;
+        }
+
+        .footer-section h3.footer-brand {
+            color: #fff;
+            background: none;
+            -webkit-text-fill-color: #fff;
+            background-clip: unset;
+            font-size: 1.25rem;
+        }
+
+        .footer-section p {
+            color: #aaa;
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: #ff6b6b;
+            transform: translateX(5px);
+        }
+
+        .footer-bottom {
+            background: #0d0d0d;
+            padding: 1.5rem 2rem;
+            text-align: center;
+            color: #666;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 107, 107, 0.1);
+            border: 2px solid rgba(255, 107, 107, 0.3);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ff6b6b;
+            font-size: 1.3rem;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .pricing-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .option-group {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #fff;
+                flex-direction: column;
+                padding: 1rem 2rem;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+                gap: 0.5rem;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-container {
+                position: relative;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+                padding: 0.5rem;
+                min-width: 44px;
+                min-height: 44px;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .brand-logo {
+                width: 45px;
+                height: 45px;
+            }
+
+            .brand-text {
+                font-size: 1.5rem;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .customize-form {
+                padding: 2rem 1.5rem;
+            }
+
+            .nav-container {
+                padding: 1rem;
+            }
+
+            .pricing-banner,
+            .customize-container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+        }
+    </style>
+</head>
+<script>
+function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    const countElement = document.getElementById('cartCount');
+    if (countElement) {
+        countElement.textContent = totalItems;
+    }
+}
+document.addEventListener('DOMContentLoaded', function() {
+    updateCartCount();
+    var btn = document.querySelector('.mobile-menu-btn');
+    var nav = document.querySelector('.nav-links');
+    if (btn && nav) {
+        btn.addEventListener('click', function() {
+            nav.classList.toggle('open');
+        });
+    }
+});
+</script>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="brand">
+                <div class="brand-text">The Inked <span class="accent">Shelf</span></div>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="manga.html">Manga</a>
+                <a href="novels.html">Novels</a>
+                <a href="customize.html" class="active">Customize</a>
+                <a href="faq.html">FAQ</a>
+                <a href="contact.html">Contact</a>
+                
+                <a href="cart.html" class="cart-icon-link">
+                <i class="fas fa-bag-shopping"></i>
+                <span class="cart-count" id="cartCount">0</span>
+                </a>
+            </div>
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <h1>Customize Your Order</h1>
+        <p>To ask for any unlisted title, write the book name and send a message. We'll give you a quote</p>
+    </div>
+
+    <!-- Pricing Banner -->
+    <section class="pricing-banner">
+        <div class="pricing-cards">
+            <div class="pricing-card">
+                <h3><i class="fas fa-book"></i> Hardcover Upgrade</h3>
+                <div class="price">+৳80</div>
+                <div class="description">Premium hardcover binding with enhanced durability</div>
+            </div>
+            <div class="pricing-card">
+                <h3><i class="fas fa-shield-alt"></i> Dust Cover</h3>
+                <div class="price">+৳50</div>
+                <div class="description">Protective dust jacket for your book</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customize Form -->
+    <section class="customize-container">
+        <form class="customize-form" id="customizeForm">
+            <!-- Book Type -->
+            <div class="form-section">
+                <h3><i class="fas fa-layer-group"></i> Select Type</h3>
+                <div class="option-group">
+                    <div class="option-btn active" onclick="selectType('manga')">
+                        <div class="icon">📚</div>
+                        <div class="label">Manga</div>
+                    </div>
+                    <div class="option-btn" onclick="selectType('novel')">
+                        <div class="icon">📖</div>
+                        <div class="label">Novel</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Book Name -->
+            <div class="form-section">
+                <h3><i class="fas fa-edit"></i> Book Name</h3>
+                <input type="text" class="input-field" id="bookName" placeholder="Enter the book name (e.g., One Piece Vol 1)" required>
+            </div>
+
+            <!-- Cover Type -->
+            <div class="form-section">
+                <h3><i class="fas fa-book-open"></i> Cover Type</h3>
+                <div class="option-group">
+                    <div class="option-btn active" onclick="selectCoverType('paperback')">
+                        <div class="icon">📄</div>
+                        <div class="label">Paperback</div>
+                        <div class="extra-info">Base Price</div>
+                    </div>
+                    <div class="option-btn" onclick="selectCoverType('hardcover')">
+                        <div class="icon">📕</div>
+                        <div class="label">Hardcover</div>
+                        <div class="extra-info">+৳80</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dust Cover -->
+            <div class="form-section">
+                <h3><i class="fas fa-shield-alt"></i> Dust Cover</h3>
+                <div class="option-group">
+                    <div class="option-btn" onclick="selectDustCover('no')">
+                        <div class="icon">❌</div>
+                        <div class="label">No Dust Cover</div>
+                        <div class="extra-info">No extra charge</div>
+                    </div>
+                    <div class="option-btn" onclick="selectDustCover('yes')">
+                        <div class="icon">✅</div>
+                        <div class="label">Add Dust Cover</div>
+                        <div class="extra-info">+৳50</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Notes -->
+            <div class="form-section">
+                <h3><i class="fas fa-comment-dots"></i> Additional Notes (Optional)</h3>
+                <textarea class="textarea-field" id="additionalNotes" placeholder="Any special requests or additional information..."></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-btn">
+                <i class="fab fa-whatsapp"></i>
+                <span>Order Now</span>
+            </button>
+        </form>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 class="footer-brand">The Inked Shelf</h3>
+                <p>Your trusted online bookstore for premium manga and novels in Bangladesh. We deliver quality, authenticity, and exceptional service.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/profile.php?id=61559259214361" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://wa.me/8801616651333" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/the_inked_shelf/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="manga.html">Manga</a></li>
+                    <li><a href="novels.html">Novels</a></li>
+                    <li><a href="customize.html">Customize</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul class="footer-links">
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="#">Shipping Info</a></li>
+                    <li><a href="#">Returns</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-envelope"></i> inkedshelf@gmail.com</li>
+                    <li><i class="fas fa-phone"></i> 01616651333</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Dhaka, Bangladesh</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // State management
+        let customOrder = {
+            type: 'manga',
+            bookName: '',
+            coverType: 'paperback',
+            dustCover: 'no',
+            notes: '',
+            basePrice: 350
+        };
+
+        // Select book type
+        function selectType(type) {
+            customOrder.type = type;
+            updateActiveButton(event.target.closest('.option-btn'));
+        }
+
+        // Select cover type
+        function selectCoverType(type) {
+            customOrder.coverType = type;
+            updateActiveButton(event.target.closest('.option-btn'));
+            updatePriceSummary();
+        }
+
+        // Select dust cover
+        function selectDustCover(choice) {
+            customOrder.dustCover = choice;
+            updateActiveButton(event.target.closest('.option-btn'));
+            updatePriceSummary();
+        }
+
+        // Update active button state
+        function updateActiveButton(clickedBtn) {
+            const parent = clickedBtn.parentElement;
+            parent.querySelectorAll('.option-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            clickedBtn.classList.add('active');
+        }
+
+        // Update price summary
+        function updatePriceSummary() {
+            const basePrice = customOrder.basePrice;
+            const coverTypePrice = customOrder.coverType === 'hardcover' ? 90 : 0;
+            const dustCoverPrice = customOrder.dustCover === 'yes' ? 50 : 0;
+            const totalPrice = basePrice + coverTypePrice + dustCoverPrice;
+
+            document.getElementById('coverTypeLabel').textContent = 
+                customOrder.coverType === 'hardcover' ? 'Hardcover' : 'Paperback';
+            document.getElementById('coverTypePrice').textContent = '৳' + coverTypePrice;
+            
+            document.getElementById('dustCoverLabel').textContent = 
+                customOrder.dustCover === 'yes' ? 'Yes' : 'No';
+            document.getElementById('dustCoverPrice').textContent = '৳' + dustCoverPrice;
+            
+            document.getElementById('totalPrice').textContent = '৳' + totalPrice;
+        }
+
+        // Handle form submission
+        document.getElementById('customizeForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const bookName = document.getElementById('bookName').value.trim();
+            const additionalNotes = document.getElementById('additionalNotes').value.trim();
+            
+            if (!bookName) {
+                alert('Please enter the book name');
+                return;
+            }
+
+            customOrder.bookName = bookName;
+            customOrder.notes = additionalNotes;
+
+            // Calculate final price
+            const basePrice = customOrder.basePrice;
+            const coverTypePrice = customOrder.coverType === 'hardcover' ? 90 : 0;
+            const dustCoverPrice = customOrder.dustCover === 'yes' ? 50 : 0;
+            const totalPrice = basePrice + coverTypePrice + dustCoverPrice;
+
+            // Create WhatsApp message
+            const message = `Hello! I want to customize an order:
+
+📚 Book Type: ${customOrder.type === 'manga' ? 'Manga' : 'Novel'}
+📖 Book Name: ${customOrder.bookName}
+📕 Cover Type: ${customOrder.coverType === 'hardcover' ? 'Hardcover (+৳90)' : 'Paperback'}
+🛡️ Dust Cover: ${customOrder.dustCover === 'yes' ? 'Yes (+৳50)' : 'No'}
+
+💰 Total Price: ৳${totalPrice}
+${customOrder.notes ? '\n📝 Notes: ' + customOrder.notes : ''}
+
+Please confirm availability and delivery time.`;
+
+            // Open WhatsApp
+            const whatsappNumber = '8801616651333';
+            const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappLink, '_blank');
+        });
+
+        // Initialize price summary
+        updatePriceSummary();
+    </script>
+</body>
+</html>
