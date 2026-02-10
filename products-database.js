@@ -3,7 +3,7 @@ const products = {
     // MANGA PRODUCTS
     // ============================================
     manga: [
-        { id: 1,  name: "Chainsaw Man Vol 31",  price: 250, image: "https://comicvine.gamespot.com/a/uploads/scale_small/6/67663/7597895-01.jpg", badge: "" },
+        { id: 1,  name: "Chainsaw Man Vol 1",  price: 250, image: "https://comicvine.gamespot.com/a/uploads/scale_small/6/67663/7597895-01.jpg", badge: "" },
         { id: 2,  name: "Chainsaw Man Vol 2",  price: 250, image: "https://comicvine.gamespot.com/a/uploads/scale_small/6/67663/7694178-02.jpg", badge: "" },
         { id: 3,  name: "Chainsaw Man Vol 3",  price: 250, image: "https://comicvine.gamespot.com/a/uploads/scale_small/6/67663/7793245-03.jpg", badge: "" },
         { id: 4,  name: "Chainsaw Man Vol 4",  price: 250, image: "https://comicvine.gamespot.com/a/uploads/scale_small/6/67663/7902566-04.jpg", badge: "" },
