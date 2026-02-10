@@ -243,11 +243,11 @@ const products = {
     novels: [
         // 1. Dark Verse Series (Runyx)
         {id: 10001, name: "The Predator (Dark Verse #1)", price: 270, image: "https://m.media-amazon.com/images/I/41wZW+yLPUL._SY300_.jpg", badge: ""},
-        {id: 10002, name: "The Reaper (Dark Verse #2)", price: 450, image: "https://m.media-amazon.com/images/I/41PzLhKSRNL._SY300_.jpg", badge: ""},
-        {id: 10003, name: "The Emperor (Dark Verse #3)", price: 450, image: "https://m.media-amazon.com/images/I/51UdcSqrTAL._SY300_.jpg", badge: ""},
-        {id: 10004, name: "The Finisher (Dark Verse #4)", price: 450, image: "https://m.media-amazon.com/images/I/51xnY6eavxL._SY300_.jpg", badge: ""},
-        {id: 10005, name: "The Annihilator (Dark Verse #5)", price: 450, image: "https://m.media-amazon.com/images/I/51AK0i9edDL._SY300_.jpg", badge: ""},
-        {id: 10006, name: "The Syndicater (Dark Verse #6)", price: 450, image: "https://m.media-amazon.com/images/I/413Cu8-xMTL._SY300_.jpg", badge: ""},
+        {id: 10002, name: "The Reaper (Dark Verse #2)", price: 290, image: "https://m.media-amazon.com/images/I/41PzLhKSRNL._SY300_.jpg", badge: ""},
+        {id: 10003, name: "The Emperor (Dark Verse #3)", price: 320, image: "https://m.media-amazon.com/images/I/51UdcSqrTAL._SY300_.jpg", badge: ""},
+        {id: 10004, name: "The Finisher (Dark Verse #4)", price: 280, image: "https://m.media-amazon.com/images/I/51xnY6eavxL._SY300_.jpg", badge: ""},
+        {id: 10005, name: "The Annihilator (Dark Verse #5)", price: 240, image: "https://m.media-amazon.com/images/I/51AK0i9edDL._SY300_.jpg", badge: ""},
+        {id: 10006, name: "The Syndicater (Dark Verse #6)", price: 270, image: "https://m.media-amazon.com/images/I/413Cu8-xMTL._SY300_.jpg", badge: ""},
 
         // 2. Empyrean Series (Rebecca Yarros)
         {id: 10007, name: "Fourth Wing (Empyrean #1)", price: 450, image: "https://m.media-amazon.com/images/I/914HWd0RxsL._AC_UY218_.jpg", badge: ""},
