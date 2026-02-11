@@ -289,41 +289,58 @@ const products = {
         {id: 10009, name: "Onyx Storm (Empyrean #3)", price: 500, image: "https://m.media-amazon.com/images/I/91rcGxdclIL._AC_UY218_.jpg", badge: ""},
 
         // 3. Made Series (Danielle Lori)
-        {id: 10010, name: "The Sweetest Oblivion (Made #1)", price: 450, image: "https://m.media-amazon.com/images/I/4117gTjPTPL._SY300_.jpg", badge: ""},
-        {id: 10011, name: "The Maddest Obsession (Made #2)", price: 450, image: "https://m.media-amazon.com/images/I/41ny+qa7YgL._SY300_.jpg", badge: ""},
-        {id: 10012, name: "The Darkest Temptation (Made #3)", price: 450, image: "https://m.media-amazon.com/images/I/417r53rY2FL._SY300_.jpg", badge: ""},
-
-        // 5. The Edge of Darkness Trilogy (Leigh Rivers)
-        {id: 10016, name: "Insatiable (The Edge of Darkness Trilogy #1)", price: 450, image: "https://m.media-amazon.com/images/I/51uD0Oy9D0L._SY300_.jpg", badge: ""},
-        {id: 10017, name: "Irresistible (The Edge of Darkness Trilogy #2)", price: 450, image: "https://m.media-amazon.com/images/I/51EgN4DQq1L._SY300_.jpg", badge: ""},
-        {id: 10018, name: "Inevitable (The Edge of Darkness Trilogy #3)", price: 450, image: "https://m.media-amazon.com/images/I/51PficLSDUL._SY300_.jpg", badge: ""},
+        {id: 10010, name: "The Sweetest Oblivion (Made #1)", price: 310, image: "https://m.media-amazon.com/images/I/4117gTjPTPL._SY300_.jpg", badge: ""},
+        {id: 10011, name: "The Maddest Obsession (Made #2)", price: 310, image: "https://m.media-amazon.com/images/I/41ny+qa7YgL._SY300_.jpg", badge: ""},
+        {id: 10012, name: "The Darkest Temptation (Made #3)", price: 340, image: "https://m.media-amazon.com/images/I/417r53rY2FL._SY300_.jpg", badge: ""},
 
         // 7. Legacy of Gods (Rina Kent)
-        {id: 10023, name: "God of Malice (Legacy of Gods #1)", price: 450, image: "https://m.media-amazon.com/images/I/51nXgmwselL._SY300_.jpg", badge: ""},
-        {id: 10024, name: "God of Pain (Legacy of Gods #2)", price: 450, image: "https://m.media-amazon.com/images/I/51tpoy6704L._SY300_.jpg", badge: ""},
-        {id: 10025, name: "God of Wrath (Legacy of Gods #3)", price: 450, image: "https://m.media-amazon.com/images/I/51sR8ua2z+L._SY300_.jpg", badge: ""},
-        {id: 10026, name: "God of Ruin (Legacy of Gods #4)", price: 450, image: "https://m.media-amazon.com/images/I/51qC6uh0eWL._SY300_.jpg", badge: ""},
-        {id: 10027, name: "God of Fury (Legacy of Gods #5)", price: 450, image: "https://m.media-amazon.com/images/I/51REpKJmJIL._SY300_.jpg", badge: ""},
-        {id: 10029, name: "God of War (Legacy of Gods #6)", price: 450, image: "https://m.media-amazon.com/images/I/51AtU7O6hPL._SY300_.jpg", badge: ""},
+        {id: 10023, name: "God of Malice (Legacy of Gods #1)", price: 420, image: "https://m.media-amazon.com/images/I/51nXgmwselL._SY300_.jpg", badge: ""},
+        {id: 10024, name: "God of Pain (Legacy of Gods #2)", price: 350, image: "https://m.media-amazon.com/images/I/51tpoy6704L._SY300_.jpg", badge: ""},
+        {id: 10025, name: "God of Wrath (Legacy of Gods #3)", price: 380, image: "https://m.media-amazon.com/images/I/51sR8ua2z+L._SY300_.jpg", badge: ""},
+        {id: 10026, name: "God of Ruin (Legacy of Gods #4)", price: 340, image: "https://m.media-amazon.com/images/I/51qC6uh0eWL._SY300_.jpg", badge: ""},
+        {id: 10027, name: "God of Fury (Legacy of Gods #5)", price: 390, image: "https://m.media-amazon.com/images/I/51REpKJmJIL._SY300_.jpg", badge: ""},
+        {id: 10029, name: "God of War (Legacy of Gods #6)", price: 350, image: "https://m.media-amazon.com/images/I/51AtU7O6hPL._SY300_.jpg", badge: ""},
 
-        // 9. Deception Trilogy (Rina Kent)
-        {id: 10031, name: "Vow of Deception (Deception Trilogy #1)", price: 450, image: "https://m.media-amazon.com/images/I/518-Vyu8KuL._SY300_.jpg", badge: ""},
-        {id: 10032, name: "Tempted by Deception (Deception Trilogy #2)", price: 450, image: "https://m.media-amazon.com/images/I/51u+q215j1L._SY300_.jpg", badge: ""},
-        {id: 10033, name: "Consumed by Deception (Deception Trilogy #3)", price: 450, image: "https://m.media-amazon.com/images/I/51YFkxtTveL._SY300_.jpg", badge: ""},
-
-        // 10. The Lords Series (Shantel Tessier)
-        {id: 10034, name: "The Ritual (The Lords Series #1)", price: 450, image: "https://m.media-amazon.com/images/I/51oFdGuoylL._SY300_.jpg", badge: ""},
-        {id: 10035, name: "The Sinner (The Lords Series #2)", price: 450, image: "https://m.media-amazon.com/images/I/51-5m2SPPHL._SY300_.jpg", badge: ""},
-        {id: 10036, name: "The Sacrifice (The Lords Series #3)", price: 450, image: "https://m.media-amazon.com/images/I/51XAplGTaZL._SY300_.jpg", badge: ""},
-
-        // 11. King of Sins Series (Ana Huang)
-        {id: 10037, name: "King of Wrath (King of Sins #1)", price: 450, image: "https://m.media-amazon.com/images/I/515mo+3sVDL._SY300_.jpg", badge: ""},
-        {id: 10038, name: "King of Pride (King of Sins #2)", price: 450, image: "https://m.media-amazon.com/images/I/513bddvABKL._SY300_.jpg", badge: ""},
-        {id: 10039, name: "King of Greed (King of Sins #3)", price: 450, image: "https://m.media-amazon.com/images/I/51AC5Q9dNrL._SY300_.jpg", badge: ""},
-        {id: 10040, name: "King of Sloth (King of Sins #4)", price: 450, image: "https://m.media-amazon.com/images/I/41k-Vx1UYoL._SY300_.jpg", badge: ""},
-        {id: 10041, name: "King of Envy (King of Sins #5)", price: 450, image: "https://m.media-amazon.com/images/I/41nyncvQZJL._SY300_.jpg", badge: ""},
-        {id: 10042, name: "King of Gluttony (King of Sins #6)", price: 450, image: "https://m.media-amazon.com/images/I/41sgChMogNL._SY300_.jpg", badge: ""},
-
+        {id: 10037, name: "The Housemaid (The Housemaid, #1)", price: 240, image: "https://media.oceanofpdf.com/2024/10/PDF-EPUB-The-Housemaid-The-Housemaid-1-by-Freida-McFadden-Download.jpg", badge: ""},
+        {id: 10038, name: "The Housemaid’s Secret (The Housemaid, #2)", price: 230, image: "https://media.oceanofpdf.com/2023/03/PDF-EPUB-The-Housemaids-Secret-The-Housemaid-2-by-Freida-McFadden-Download.jpg", badge: ""},
+        {id: 10039, name: "The Housemaid Is Watching (The Housemaid, #3)", price: 270, image: "https://media.oceanofpdf.com/2024/06/PDF-EPUB-The-Housemaid-Is-Watching-The-Housemaid-3-by-Freida-McFadden-Download.jpg", badge: ""},
+        {id: 10040, name: "Holly by Stephen King", price: 380, image: "https://media.oceanofpdf.com/2023/09/PDF-EPUB-Holly-by-Stephen-King-Download.jpg", badge: ""},
+        {id: 10041, name: "IT by Stephen King", price: 850, image: "https://media.oceanofpdf.com/2023/02/PDF-EPUB-It-by-Stephen-King-Download.jpg", badge: ""},
+        {id: 10042, name: "The Silent Patient", price: 280, image: "https://media.oceanofpdf.com/2025/01/PDF-EPUB-The-Silent-Patient-by-Alex-Michaelides-Download.png", badge: ""},
+        {id: 10042, name: "Death Note: Another Note: The Los Angeles BB Murder Cases", price: 130, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeF_T1XVyLcMirj4sqvBZaosLbAG53tczFow&s", badge: ""},
+        {id: 10042, name: "Solo Leveling 1", price: 280, image: "https://m.media-amazon.com/images/I/51tNTYCv9TL._SY300_.jpg", badge: ""},
+        {id: 10042, name: "Solo Leveling 2", price: 280, image: "https://m.media-amazon.com/images/I/51OHhyCx6bL._SY300_.jpg", badge: ""},
+        {id: 10042, name: "Solo Leveling 3", price: 280, image: "https://m.media-amazon.com/images/I/514-dppeJ5L._SY300_.jpg", badge: ""},
+        {id: 10042, name: "Solo Leveling 4", price: 280, image: "https://m.media-amazon.com/images/I/51yCOQ-UbiL._SY300_.jpg", badge: ""},
+        {id: 10042, name: "Solo Leveling 5", price: 280, image: "https://m.media-amazon.com/images/I/51hwgcowSrL._SY300_.jpg", badge: ""},
+        {id: 10042, name: "Solo Leveling 6", price: 250, image: "https://m.media-amazon.com/images/I/51owl2h+bgL._SY300_.jpg", badge: ""},
+        {id: 10042, name: "Solo Leveling 7", price: 250, image: "https://m.media-amazon.com/images/I/51Qz1fH8j7L._SY300_.jpg", badge: ""},
+        {id: 10042, name: "Solo Leveling 8", price: 250, image: "https://m.media-amazon.com/images/I/518Dw11D4RL._SY300_.jpg", badge: ""},
+        {id: 10042, name: "86 v1", price: 230, image: "https://images.yenpress.com/imgs/9781975303129.jpg?w=285&h=422&type=books&s=39cec05c3ef2ad2f333e4aca4f5530f8", badge: ""},
+        {id: 10042, name: "86 v2", price: 250, image: "https://images.yenpress.com/imgs/9781975303143.jpg?w=285&h=422&type=books&s=ae246ed0500d0d5e11cc52a9271d723b", badge: ""},
+        {id: 10042, name: "86 v3", price: 210, image: "https://images.yenpress.com/imgs/9781975303112.jpg?w=285&h=422&type=books&s=4a8f3c907a23fb420fbc107561819cea", badge: ""},
+        
+        {id: 10042, name: "86 v4", price: 210, image: "https://images.yenpress.com/imgs/9781975303167.jpg?w=285&h=422&type=books&s=a8731b2a0346cc6c109e60378e6ff340", badge: ""},
+        
+        {id: 10042, name: "86 v5", price: 240, image: "https://images.yenpress.com/imgs/9781975399252.jpg?w=285&h=422&type=books&s=9922c0159fbb4beb1cb6842c579cfa74", badge: ""},
+        
+        {id: 10042, name: "86 v6", price: 210, image: "https://images.yenpress.com/imgs/9781975314514.jpg?w=285&h=422&type=books&s=baa47a75c93fcd68e66d02a390a8a381", badge: ""},
+        
+        {id: 10042, name: "86 v7", price: 200, image: "https://images.yenpress.com/imgs/9781975320744.jpg?w=285&h=422&type=books&s=b85f521edeba994a21dc9d1a5dda78b5", badge: ""},
+        
+        {id: 10042, name: "86 v8", price: 210, image: "https://images.yenpress.com/imgs/9781975320768.jpg?w=285&h=422&type=books&s=472b9257fc15d3942d0cf366f25ed402", badge: ""},
+    
+        {id: 10042, name: "86 v9", price: 250, image: "https://images.yenpress.com/imgs/9781975339999.jpg?w=285&h=422&type=books&s=98adc06d5ccb461f0e18b9be061f3398", badge: ""},
+        
+        {id: 10042, name: "86 v10", price: 250, image: "https://images.yenpress.com/imgs/9781975343347.jpg?w=285&h=422&type=books&s=c8d2575d23564a1334e2d454839c84d6", badge: ""},
+        
+        {id: 10042, name: "86 v11", price: 250, image: "https://images.yenpress.com/imgs/9781975349967.jpg?w=285&h=422&type=books&s=e227fdc18a90c2ccc6a4e72e270f9c2a", badge: ""},
+        
+        {id: 10042, name: "86 v12", price: 250, image: "https://images.yenpress.com/imgs/9781975373474.jpg?w=285&h=422&type=books&s=001a5912ad78a761500fc6d5fa97badd", badge: ""},
+        
+        {id: 10042, name: "86 v13", price: 250, image: "https://images.yenpress.com/imgs/9798855408294.jpg?w=285&h=422&type=books&s=9b2602834d37cf96490ff0cf294357b2", badge: ""},
+    
+        
     ]
 };
 
