@@ -283,6 +283,30 @@ const products = {
         {id: 10005, name: "The Annihilator (Dark Verse #5)", price: 240, image: "https://m.media-amazon.com/images/I/51AK0i9edDL._SY300_.jpg", badge: ""},
         {id: 10006, name: "The Syndicater (Dark Verse #6)", price: 270, image: "https://m.media-amazon.com/images/I/413Cu8-xMTL._SY300_.jpg", badge: ""},
 
+        {id: 10042, name: "86 v1", price: 230, image: "https://images.yenpress.com/imgs/9781975303129.jpg?w=285&h=422&type=books&s=39cec05c3ef2ad2f333e4aca4f5530f8", badge: ""},
+        {id: 10042, name: "86 v2", price: 250, image: "https://images.yenpress.com/imgs/9781975303143.jpg?w=285&h=422&type=books&s=ae246ed0500d0d5e11cc52a9271d723b", badge: ""},
+        {id: 10042, name: "86 v3", price: 210, image: "https://images.yenpress.com/imgs/9781975303112.jpg?w=285&h=422&type=books&s=4a8f3c907a23fb420fbc107561819cea", badge: ""},
+        
+        {id: 10042, name: "86 v4", price: 210, image: "https://images.yenpress.com/imgs/9781975303167.jpg?w=285&h=422&type=books&s=a8731b2a0346cc6c109e60378e6ff340", badge: ""},
+        
+        {id: 10042, name: "86 v5", price: 240, image: "https://images.yenpress.com/imgs/9781975399252.jpg?w=285&h=422&type=books&s=9922c0159fbb4beb1cb6842c579cfa74", badge: ""},
+        
+        {id: 10042, name: "86 v6", price: 210, image: "https://images.yenpress.com/imgs/9781975314514.jpg?w=285&h=422&type=books&s=baa47a75c93fcd68e66d02a390a8a381", badge: ""},
+        
+        {id: 10042, name: "86 v7", price: 200, image: "https://images.yenpress.com/imgs/9781975320744.jpg?w=285&h=422&type=books&s=b85f521edeba994a21dc9d1a5dda78b5", badge: ""},
+        
+        {id: 10042, name: "86 v8", price: 210, image: "https://images.yenpress.com/imgs/9781975320768.jpg?w=285&h=422&type=books&s=472b9257fc15d3942d0cf366f25ed402", badge: ""},
+    
+        {id: 10042, name: "86 v9", price: 250, image: "https://images.yenpress.com/imgs/9781975339999.jpg?w=285&h=422&type=books&s=98adc06d5ccb461f0e18b9be061f3398", badge: ""},
+        
+        {id: 10042, name: "86 v10", price: 250, image: "https://images.yenpress.com/imgs/9781975343347.jpg?w=285&h=422&type=books&s=c8d2575d23564a1334e2d454839c84d6", badge: ""},
+        
+        {id: 10042, name: "86 v11", price: 250, image: "https://images.yenpress.com/imgs/9781975349967.jpg?w=285&h=422&type=books&s=e227fdc18a90c2ccc6a4e72e270f9c2a", badge: ""},
+        
+        {id: 10042, name: "86 v12", price: 250, image: "https://images.yenpress.com/imgs/9781975373474.jpg?w=285&h=422&type=books&s=001a5912ad78a761500fc6d5fa97badd", badge: ""},
+        
+        {id: 10042, name: "86 v13", price: 250, image: "https://images.yenpress.com/imgs/9798855408294.jpg?w=285&h=422&type=books&s=9b2602834d37cf96490ff0cf294357b2", badge: ""},
+    
         // 2. Empyrean Series (Rebecca Yarros)
         {id: 10007, name: "Fourth Wing (Empyrean #1)", price: 500, image: "https://m.media-amazon.com/images/I/914HWd0RxsL._AC_UY218_.jpg", badge: ""},
         {id: 10008, name: "Iron Flame (Empyrean #2)", price: 660, image: "https://m.media-amazon.com/images/I/912fTvsUKLL._AC_UY218_.jpg", badge: ""},
@@ -316,30 +340,7 @@ const products = {
         {id: 10042, name: "Solo Leveling 6", price: 250, image: "https://m.media-amazon.com/images/I/51owl2h+bgL._SY300_.jpg", badge: ""},
         {id: 10042, name: "Solo Leveling 7", price: 250, image: "https://m.media-amazon.com/images/I/51Qz1fH8j7L._SY300_.jpg", badge: ""},
         {id: 10042, name: "Solo Leveling 8", price: 250, image: "https://m.media-amazon.com/images/I/518Dw11D4RL._SY300_.jpg", badge: ""},
-        {id: 10042, name: "86 v1", price: 230, image: "https://images.yenpress.com/imgs/9781975303129.jpg?w=285&h=422&type=books&s=39cec05c3ef2ad2f333e4aca4f5530f8", badge: ""},
-        {id: 10042, name: "86 v2", price: 250, image: "https://images.yenpress.com/imgs/9781975303143.jpg?w=285&h=422&type=books&s=ae246ed0500d0d5e11cc52a9271d723b", badge: ""},
-        {id: 10042, name: "86 v3", price: 210, image: "https://images.yenpress.com/imgs/9781975303112.jpg?w=285&h=422&type=books&s=4a8f3c907a23fb420fbc107561819cea", badge: ""},
-        
-        {id: 10042, name: "86 v4", price: 210, image: "https://images.yenpress.com/imgs/9781975303167.jpg?w=285&h=422&type=books&s=a8731b2a0346cc6c109e60378e6ff340", badge: ""},
-        
-        {id: 10042, name: "86 v5", price: 240, image: "https://images.yenpress.com/imgs/9781975399252.jpg?w=285&h=422&type=books&s=9922c0159fbb4beb1cb6842c579cfa74", badge: ""},
-        
-        {id: 10042, name: "86 v6", price: 210, image: "https://images.yenpress.com/imgs/9781975314514.jpg?w=285&h=422&type=books&s=baa47a75c93fcd68e66d02a390a8a381", badge: ""},
-        
-        {id: 10042, name: "86 v7", price: 200, image: "https://images.yenpress.com/imgs/9781975320744.jpg?w=285&h=422&type=books&s=b85f521edeba994a21dc9d1a5dda78b5", badge: ""},
-        
-        {id: 10042, name: "86 v8", price: 210, image: "https://images.yenpress.com/imgs/9781975320768.jpg?w=285&h=422&type=books&s=472b9257fc15d3942d0cf366f25ed402", badge: ""},
-    
-        {id: 10042, name: "86 v9", price: 250, image: "https://images.yenpress.com/imgs/9781975339999.jpg?w=285&h=422&type=books&s=98adc06d5ccb461f0e18b9be061f3398", badge: ""},
-        
-        {id: 10042, name: "86 v10", price: 250, image: "https://images.yenpress.com/imgs/9781975343347.jpg?w=285&h=422&type=books&s=c8d2575d23564a1334e2d454839c84d6", badge: ""},
-        
-        {id: 10042, name: "86 v11", price: 250, image: "https://images.yenpress.com/imgs/9781975349967.jpg?w=285&h=422&type=books&s=e227fdc18a90c2ccc6a4e72e270f9c2a", badge: ""},
-        
-        {id: 10042, name: "86 v12", price: 250, image: "https://images.yenpress.com/imgs/9781975373474.jpg?w=285&h=422&type=books&s=001a5912ad78a761500fc6d5fa97badd", badge: ""},
-        
-        {id: 10042, name: "86 v13", price: 250, image: "https://images.yenpress.com/imgs/9798855408294.jpg?w=285&h=422&type=books&s=9b2602834d37cf96490ff0cf294357b2", badge: ""},
-    
+       
         
     ]
 };
